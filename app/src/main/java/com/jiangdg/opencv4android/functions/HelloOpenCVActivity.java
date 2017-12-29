@@ -3,6 +3,7 @@ package com.jiangdg.opencv4android.functions;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.WindowManager;
 
@@ -14,18 +15,32 @@ import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * 第一个OpenCV例子
- *
  * Created by jiangdongguo on 2017/12/29.
  */
 
-public class HelloOpenCVActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener{
-    private CameraBridgeViewBase mOpenCvCameraView;
+public class HelloOpenCVActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
+    private static final String TAG = "HelloOpenCVActivity";
+    @BindView(R.id.HelloOpenCvView)
+    CameraBridgeViewBase mOpenCvCameraView;
+
     private LoaderCallbackInterface mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
-            super.onManagerConnected(status);
+            switch (status) {
+                // OpenCV引擎加载成功，渲染Camera数据
+                case LoaderCallbackInterface.SUCCESS:
+                    Log.i(TAG, "OpenCV loaded successfully.");
+                    mOpenCvCameraView.enableView();
+                    break;
+                default:
+                    super.onManagerConnected(status);
+                    break;
+            }
         }
     };
 
@@ -36,20 +51,26 @@ public class HelloOpenCVActivity extends AppCompatActivity implements CameraBrid
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_hello);
-        // 初始化OpenCV引擎
-        mOpenCvCameraView = (CameraBridgeViewBase)findViewById(R.id.HelloOpenCvView);
+        // 绑定View
+        ButterKnife.bind(this);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
     }
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
-        // 初始化引擎
-        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_3_0,this,mLoaderCallback);
+        // 静态加载
+        if(!OpenCVLoader.initDebug()) {
+            Log.w(TAG,"static loading library fail,Using Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_3_0, this, mLoaderCallback);
+        } else {
+            Log.w(TAG, "OpenCV library found inside package. Using it!");
+            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
+        }
     }
+
 
     @Override
     public void onCameraViewStarted(int width, int height) {
@@ -62,15 +83,15 @@ public class HelloOpenCVActivity extends AppCompatActivity implements CameraBrid
     }
 
     @Override
-    public Mat onCameraFrame(Mat inputFrame) {
-        return inputFrame;
+    public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
+        return inputFrame.rgba();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         // 释放Camera资源
-        if(mOpenCvCameraView != null) {
+        if (mOpenCvCameraView != null) {
             mOpenCvCameraView.disableView();
         }
     }
@@ -79,7 +100,7 @@ public class HelloOpenCVActivity extends AppCompatActivity implements CameraBrid
     protected void onDestroy() {
         super.onDestroy();
         // 释放Camera资源
-        if(mOpenCvCameraView != null) {
+        if (mOpenCvCameraView != null) {
             mOpenCvCameraView.disableView();
         }
     }

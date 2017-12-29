@@ -14,4 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hello OpenCV" />
+
+    <Button
+        android:id="@+id/btn_faceDetect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="人脸检测" />
 </LinearLayout>
