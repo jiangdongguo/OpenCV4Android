@@ -7,6 +7,13 @@
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
+
+    <supports-screens android:resizeable="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +29,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".functions.HelloOpenCVActivity"/>
+        <activity android:name=".HelloOpenCVActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name=".FaceDetectActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation"/>
     </application>
-
 </manifest>

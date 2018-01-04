@@ -9,16 +9,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            moduleName "detection_based_tracker"
+        }
+    }
+    sourceSets.main {
+        jni.srcDirs = [] //禁止自动调用ndk-build命令
+        jniLibs.srcDir 'src/main/libs'  // 设置目标的so存放路径
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
         }
     }
 }
