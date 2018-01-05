@@ -190,10 +190,7 @@ public class FaceDetectActivity extends AppCompatActivity implements CameraBridg
             Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
         }
 
-
-        if (faces != null) {
-            Log.i(TAG, "共检测到 " + faces.toArray().length + " 张脸");
-        }
+        Log.i(TAG, "共检测到 " + faces.toArray().length + " 张脸");
         return mRgba;
     }
 }

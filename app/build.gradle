@@ -13,9 +13,11 @@ android {
             moduleName "detection_based_tracker"
         }
     }
-    sourceSets.main {
-        jni.srcDirs = [] //禁止自动调用ndk-build命令
-        jniLibs.srcDir 'src/main/libs'  // 设置目标的so存放路径
+    sourceSets {
+        main {
+            jni.srcDirs = [] //禁止自动调用ndk-build命令
+            jniLibs.srcDir 'src/main/libs'  // 设置目标的so存放路径
+        }
     }
     buildTypes {
         release {
