@@ -29,10 +29,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".HelloOpenCVActivity"
-            android:screenOrientation="landscape"
+        <activity android:name=".imgproc.ImgProcessActivity"
             android:configChanges="keyboardHidden|orientation"/>
-        <activity android:name=".FaceDetectActivity"
+        <activity android:name=".objdetect.FaceDetectActivity"
             android:screenOrientation="landscape"
             android:configChanges="keyboardHidden|orientation"/>
     </application>

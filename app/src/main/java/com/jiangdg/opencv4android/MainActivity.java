@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.jiangdg.opencv4android.imgproc.ImgProcessActivity;
+import com.jiangdg.opencv4android.objdetect.FaceDetectActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         int vId = view.getId();
         switch (vId) {
             case R.id.btn_hello:
-                Intent intentHello = new Intent(MainActivity.this, HelloOpenCVActivity.class);
+                Intent intentHello = new Intent(MainActivity.this, ImgProcessActivity.class);
                 startActivity(intentHello);
                 break;
             case R.id.btn_faceDetect:
