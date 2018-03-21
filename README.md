@@ -7,7 +7,7 @@
  ![OpenCV-android-SDK](http://img.blog.csdn.net/20180107220825150)
  ## 三、OpenCV应用实例
  ### 1.应用实战：人脸检测
-![人脸检测](http://img.blog.csdn.net/20180106235146905)  
+![人脸检测](https://github.com/jiangdongguo/OpenCV4Android/blob/master/images/face_detect.gif)  
 
 csdn技术博客：  
 (1) [OpenCV4Android开发实录(1)：移植OpenCV3.3.0库到Android Studio](http://blog.csdn.net/andrexpert/article/details/78993533)  
