@@ -11,4 +11,9 @@
 
 csdn技术博客：  
 (1) [OpenCV4Android开发实录(1)：移植OpenCV3.3.0库到Android Studio](http://blog.csdn.net/andrexpert/article/details/78993533)  
-(2) [OpenCV4Android开发实录(2)： 使用OpenCV3.3.0库实现人脸检测](http://blog.csdn.net/andrexpert/article/details/78992490)
+(2) [OpenCV4Android开发实录(2)： 使用OpenCV3.3.0库实现人脸检测](http://blog.csdn.net/andrexpert/article/details/78992490)  
+(3) [OpenCV4Android开发实录(3)：数字图像基础与OpenCV开发入门](https://blog.csdn.net/AndrExpert/article/details/79889136)  
+
+Visual Studio2015项目：  
+
+[OpenCV框架使用 ----C++版本(VS2015)](https://github.com/jiangdongguo/OpenCVImageProc)
