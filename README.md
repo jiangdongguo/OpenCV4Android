@@ -11,8 +11,9 @@
 
 csdn技术博客：  
 (1) [OpenCV4Android开发实录(1)：移植OpenCV3.3.0库到Android Studio](http://blog.csdn.net/andrexpert/article/details/78993533)  
-(2) [OpenCV4Android开发实录(2)： 使用OpenCV3.3.0库实现人脸检测](http://blog.csdn.net/andrexpert/article/details/78992490) 
-(3) [OpenCV4Android开发实录(3)：数字图像基础与OpenCV开发入门](https://blog.csdn.net/AndrExpert/article/details/79889136)     
+(2) [OpenCV4Android开发实录(2)： 使用OpenCV3.3.0库实现人脸检测](http://blog.csdn.net/andrexpert/article/details/78992490)   
+(3) [OpenCV4Android开发实录(3)：数字图像基础与OpenCV开发入门](https://blog.csdn.net/AndrExpert/article/details/79889136)   
+
 (4) [ OpenCV4Android开发实录(4)：图像噪声与线性滤波(均值、方框、高斯)](https://blog.csdn.net/AndrExpert/article/details/80183965)   
 
 **Visual Studio2015项目：**  
